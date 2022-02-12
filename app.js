@@ -28,9 +28,17 @@ function calculateTotal(){
   const phoneTotal = getInputValue('phone') * 1219;
   const caseTotal = getInputValue('case') * 59;
   const subTotal = phoneTotal + caseTotal;
+  const tax = subTotal / 10; //10%
+  const totalPrice = subTotal + tax;
+
   // update subtotal 
   document.getElementById('sub-total').innerText = subTotal;
+  document.getElementById('tax-amount').innerText = tax;
+  document.getElementById('total-price').innerText = totalPrice;
 }
+
+//------------------------------------ END Function ---------------------------------------//
+
 
 // Phone increase Decrease Handle
 document.getElementById('phone-plus').addEventListener('click', function(){
@@ -57,12 +65,3 @@ document.getElementById('case-minus').addEventListener('click', function(){
   // caseInput.value = parseInt(caseNumber) - 1;
   updateProductNumber( 'case', 59 ,false);
 })
-
-
-// // update total 
-// const phoneTotal = document.getElementById('phone-total');
-// const caseTotal = document.getElementById('case-total');
-// const totalPrice = parseFloat(phoneTotal.innerText) + parseFloat(caseTotal.innerText);
-
-// const subTotal = document.getElementById('sub-total');
-// const finalTotal = subTotal.innerText = totalPrice;
